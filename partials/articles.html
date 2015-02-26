@@ -20,7 +20,7 @@
       <div class="post">
         <p><button ng-click="ArticlesFactory.upVote(item)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
         <a href="{{item.link}}" target="_blank" ng-click="newTab()">{{item.name}}</a> | ({{item.link}})</p>
-        <p>votes: {{item.votes}} | {{ArticlesFactory.ageOfPost(item)}} seconds ago | <a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
+        <p>votes: {{item.votes}} | {{ArticlesFactory.ageOfPost(item)}} seconds ago | <a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a> SCORE: {{item.score}}
         </p>
       </div>
     </li>

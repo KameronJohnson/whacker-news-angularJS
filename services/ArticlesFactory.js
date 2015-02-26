@@ -5,7 +5,7 @@ whackerNews.factory('ArticlesFactory', function ArticlesFactory() {
     var postedDate = new Date();
     factory.articles.push({ name: factory.articleName,
       id: factory.articles.length + 1,
-      link: "https://www." + factory.linkName, votes: 0,
+      link: "https://www." + factory.linkName, votes: 0, score: 5,
       datePosted: postedDate, comments: []});
         factory.articleName = null;
         factory.linkName = null;
@@ -20,12 +20,20 @@ whackerNews.factory('ArticlesFactory', function ArticlesFactory() {
 
   factory.reSort = function(articles) {
     articles.sort(function(a, b) {
-      return b.votes - a.votes;
+      return b.score - a.score;
     });
   }
 
   factory.upVote = function(article) {
     article.votes += 1;
+    article.score += 1;
+    factory.articles.forEach(function(post) {
+      post.score -= (factory.ageOfPost(post)/10);
+      if (post.score <= 0) {
+        factory.articles.splice(factory.articles.indexOf(post), 1);
+        alert(post.name + " is so 10 seconds ago. Get with it, yo!");
+      }
+    });
     factory.reSort(factory.articles);
   };
 
