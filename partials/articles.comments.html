@@ -1,10 +1,10 @@
 <div ng-show="article.comments.length">
   <h3>Comments for {{ article.name }}</h3>
-  <ul>
+  <ol>
     <li ng-repeat="item in article.comments">
       {{ item.comment }}
     </li>
-  </ul>
+  </ol>
 </div>
 
 <div>

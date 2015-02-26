@@ -14,8 +14,12 @@
   <h3>Articles - Read at your own risk:</h3>
   <ol>
     <li ng-repeat="item in articles">
-      <a href="{{item.link}}">{{item.name}}</a>
-      <a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
+      <div class="post">
+        <p><button ng-click="ArticlesFactory.upVote(item)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <a href="{{item.link}}">{{item.name}}</a> | ({{item.link}})</p>
+        <p><a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
+         | votes: {{item.votes}}</p>
+      </div>
     </li>
   </ol>
 </div>
