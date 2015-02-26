@@ -11,8 +11,18 @@ whackerNews.factory('ArticlesFactory', function ArticlesFactory() {
         factory.linkName = null;
 
   };
+
+  factory.reSort = function(articles) {
+    articles.sort(function(a, b) {
+      return b.votes - a.votes;
+    });
+  }
+
   factory.upVote = function(article) {
     article.votes += 1;
+    factory.reSort(factory.articles);
   };
+
   return factory;
+
 });
