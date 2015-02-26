@@ -1,10 +1,13 @@
 <h3>Add Article:</h3>
 <form ng-submit="ArticlesFactory.addArticle()" role="form">
   <div class="form-group">
-    <input type="text" ng-model="ArticlesFactory.articleName" class="form-control" placeholder="name">
+    <input type="text" ng-model="ArticlesFactory.articleName" class="form-control" placeholder="name" required/>
   </div>
   <div class="form-group">
-    <input type="text" ng-model="ArticlesFactory.linkName" class="form-control" placeholder="link (e.g. www.google.com)">
+    <div class="input-group">
+      <span class="input-group-addon">https://www.</span>
+      <input type="text" ng-model="ArticlesFactory.linkName" class="form-control" placeholder="whackernews.com" required/>
+    </div>
   </div>
   <button type="submit" class="btn btn-danger">Add</button>
 </form>
@@ -17,8 +20,8 @@
       <div class="post">
         <p><button ng-click="ArticlesFactory.upVote(item)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
         <a href="{{item.link}}">{{item.name}}</a> | ({{item.link}})</p>
-        <p><a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
-         | votes: {{item.votes}}</p>
+        <p>votes: {{item.votes}} | {{ArticlesFactory.ageOfPost(item)}} seconds ago | <a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
+        </p>
       </div>
     </li>
   </ol>

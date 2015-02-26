@@ -5,12 +5,18 @@ whackerNews.factory('ArticlesFactory', function ArticlesFactory() {
     var postedDate = new Date();
     factory.articles.push({ name: factory.articleName,
       id: factory.articles.length + 1,
-      link: factory.linkName, votes: 0,
+      link: "https://www." + factory.linkName, votes: 0,
       datePosted: postedDate, comments: []});
         factory.articleName = null;
         factory.linkName = null;
 
   };
+
+  factory.ageOfPost = function(article) {
+    var currentDate = new Date();
+    var secondsElapsed = Math.floor((currentDate - article.datePosted)/1000);
+    return secondsElapsed;
+  }
 
   factory.reSort = function(articles) {
     articles.sort(function(a, b) {
