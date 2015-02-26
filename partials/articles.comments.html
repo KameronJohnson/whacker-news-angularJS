@@ -1,0 +1,19 @@
+<div ng-show="article.comments.length">
+  <h3>Comments for {{ article.name }}</h3>
+  <ul>
+    <li ng-repeat="item in article.comments">
+      {{ item.comment }}
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Add a comment to {{ article.name }}</h3>
+  <form ng-submit="addComment()" class="form-inline" role="form">
+    <div class="form-group">
+      <textarea rows="3" type="text" ng-model="comments" class="form-control" placeholder="Enter comments"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
