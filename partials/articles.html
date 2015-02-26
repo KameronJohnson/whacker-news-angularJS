@@ -15,7 +15,7 @@
   <ol>
     <li ng-repeat="item in articles">
       <a href="{{item.link}}">{{item.name}}</a>
-      <a ui-sref="articles.comments({ articleId: item.id})">--see comments--</a>
+      <a ui-sref="articles.comments({ articleId: item.id})">--{{item.comments.length}} comments--</a>
     </li>
   </ol>
 </div>
