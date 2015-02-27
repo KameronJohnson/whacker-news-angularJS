@@ -31,7 +31,7 @@ whackerNews.factory('ArticlesFactory', function ArticlesFactory() {
       post.score -= (factory.ageOfPost(post)/10);
       if (post.score <= 0) {
         factory.articles.splice(factory.articles.indexOf(post), 1);
-        alert(post.name + " is so 10 seconds ago. Get with it, yo!");
+        alert("The article " + post.name + " is sooooo 10 seconds ago and has been deleted. Get with it, yo!");
       }
     });
     factory.reSort(factory.articles);
